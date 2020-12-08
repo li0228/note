@@ -6,8 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demo" />
+        <module name="shiroDemo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shiroDemo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="shiroDemo" options="-parameters" />
+    </option>
   </component>
 </project>
