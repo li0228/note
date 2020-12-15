@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" filepath="$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvmDemo/jvmDemo.iml" filepath="$PROJECT_DIR$/jvmDemo/jvmDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/shiroDemo.iml" filepath="$PROJECT_DIR$/shiroDemo/shiroDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webSocketDemo/webSocketDemo.iml" filepath="$PROJECT_DIR$/webSocketDemo/webSocketDemo.iml" />
     </modules>
   </component>
 </project>
