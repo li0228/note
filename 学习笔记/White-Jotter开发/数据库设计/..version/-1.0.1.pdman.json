@@ -1,0 +1,192 @@
+{
+  "modules": [
+    {
+      "name": "White-Jotter",
+      "chnname": "白板",
+      "entities": [
+        {
+          "title": "user",
+          "chnname": "user ",
+          "fields": [
+            {
+              "name": "id",
+              "type": "INT_10",
+              "chnname": "id 用户id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR_32",
+              "chnname": "名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pass_word",
+              "type": "VARCHAR_32",
+              "chnname": "密码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "i_name",
+              "type": "VARCHAR_32",
+              "remark": "",
+              "chnname": "昵称"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "role",
+          "fields": [
+            {
+              "name": "id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "角色名",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "name"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "role",
+          "remark": "角色表"
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [
+          {
+            "shape": "table",
+            "title": "user",
+            "moduleName": false,
+            "x": 159.3249969482422,
+            "y": 149.1999969482422,
+            "id": "4fa5de83"
+          }
+        ],
+        "edges": []
+      },
+      "associations": []
+    }
+  ],
+  "message": "新增角色表",
+  "version": "1.0.1",
+  "changes": [
+    {
+      "type": "entity",
+      "name": "role",
+      "opt": "add"
+    }
+  ],
+  "date": "2020/12/12 15:53:40"
+}

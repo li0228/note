@@ -1,0 +1,454 @@
+{
+  "modules": [
+    {
+      "name": "White-Jotter",
+      "chnname": "白板",
+      "entities": [
+        {
+          "title": "user",
+          "chnname": "user ",
+          "fields": [
+            {
+              "name": "id",
+              "type": "INT_10",
+              "chnname": "用户id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR_32",
+              "chnname": "名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pass_word",
+              "type": "VARCHAR_32",
+              "chnname": "密码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "role",
+          "fields": [
+            {
+              "name": "id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "角色名",
+              "type": "IdOrKey",
+              "remark": "",
+              "chnname": "name"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "role",
+          "remark": "角色表"
+        },
+        {
+          "title": "user_role",
+          "fields": [
+            {
+              "name": "user_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "用户id"
+            },
+            {
+              "name": "role_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "角色id"
+            },
+            {
+              "name": "address_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "address_id"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "user_role",
+          "remark": "用户角色关联表"
+        },
+        {
+          "title": "permission",
+          "fields": [
+            {
+              "name": "id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "id"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR_32",
+              "remark": "",
+              "chnname": "name"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "permission",
+          "remark": "权限表"
+        },
+        {
+          "title": "role_permission",
+          "fields": [
+            {
+              "name": "role_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "role_id"
+            },
+            {
+              "name": "permission_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "permission"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "role_permission",
+          "remark": "角色权限关联表"
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [
+          {
+            "shape": "table",
+            "title": "role",
+            "moduleName": false,
+            "x": 690,
+            "y": 450,
+            "id": "1508c36f"
+          },
+          {
+            "shape": "table",
+            "title": "permission",
+            "moduleName": false,
+            "x": 130,
+            "y": 470,
+            "id": "ac00f6cb"
+          },
+          {
+            "shape": "table",
+            "title": "role_permission",
+            "moduleName": false,
+            "x": 410,
+            "y": 450,
+            "id": "a8379a5f"
+          },
+          {
+            "shape": "table",
+            "title": "user_role",
+            "moduleName": false,
+            "x": 1070,
+            "y": 440,
+            "id": "91cab6ca"
+          },
+          {
+            "shape": "table",
+            "title": "user",
+            "moduleName": false,
+            "x": 590,
+            "y": 250,
+            "id": "4fa5de83"
+          }
+        ],
+        "edges": [
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "ac00f6cb",
+            "target": "a8379a5f",
+            "id": "a80dde07",
+            "controlPoints": [
+              {
+                "x": 226.9208984375,
+                "y": 472.5357142857143
+              },
+              {
+                "x": 303.9736328125,
+                "y": 472.82142857142856
+              }
+            ],
+            "sourceAnchor": 1,
+            "targetAnchor": 2
+          }
+        ]
+      },
+      "associations": [
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "permission",
+            "field": "id"
+          },
+          "to": {
+            "entity": "role_permission",
+            "field": "permission_id"
+          }
+        }
+      ]
+    }
+  ],
+  "message": "修改用户表",
+  "version": "1.0.5",
+  "changes": [
+    {
+      "type": "field",
+      "name": "user.i_name",
+      "opt": "delete"
+    }
+  ],
+  "date": "2020/12/12 23:3:52"
+}
