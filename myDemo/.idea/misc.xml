@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/shiroDemo/pom.xml" />
         <option value="$PROJECT_DIR$/webSocketDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/nettydemo/pom.xml" />
       </list>
     </option>
   </component>
