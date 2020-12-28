@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/clientdemo/clientdemo.iml" filepath="$PROJECT_DIR$/clientdemo/clientdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/demo.iml" filepath="$PROJECT_DIR$/shiroDemo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" filepath="$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvmDemo/jvmDemo.iml" filepath="$PROJECT_DIR$/jvmDemo/jvmDemo.iml" />

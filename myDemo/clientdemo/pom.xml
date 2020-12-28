@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lhh</groupId>
-	<artifactId>nettydemo</artifactId>
+	<artifactId>clientdemo</artifactId>
 	<version>1.0.0</version>
-	<name>nettydemo</name>
-	<description>nettyDemo</description>
+	<name>clientdemo</name>
+	<description>netty Client Demo</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -33,12 +33,6 @@
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
 			<version>5.0.0.Alpha2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin.external.google</groupId>
-			<artifactId>android-json</artifactId>
-			<version>0.0.20131108.vaadin1</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
