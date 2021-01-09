@@ -14,7 +14,7 @@
 
 ### 1.class文件的所有组成部分
 
-![img](https://img2018.cnblogs.com/blog/595137/201812/595137-20181219204230458-43856381.png)
+![img](https://raw.githubusercontent.com/li0228/image/master/595137-20181219204230458-43856381.png)
 
 ## java源文件
 
@@ -36,7 +36,7 @@ public class TestJvm {
 
 使用javac把上面的源文件编译一下，生成TestJvm.calss。然后使用notepad++打开（需要安装插件），看到下面这堆东西。
 
-![image-20210107144523628](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107144523628.png)
+![image-20210107144523628](https://raw.githubusercontent.com/li0228/image/master/image-20210107144523628.png)
 
 ## 逐字节解读
 
@@ -62,7 +62,7 @@ public class TestJvm {
 
   可以知道编译这个class文件的版本号为52.00。下图是主次版本号和JDK版本的对应表。
 
-  ![img](https://img2018.cnblogs.com/blog/595137/201812/595137-20181219204254298-373095239.png)
+  ![img](https://raw.githubusercontent.com/li0228/image/master/595137-20181219204254298-373095239.png)
 
 ## 常量池
 
@@ -70,11 +70,11 @@ public class TestJvm {
 
 根据《java虚拟机规范》可以知道，常量池是由两个部分组成的:一、两个字节表示常量个数;二、不定长的常量数据。
 
-![image-20210107151518694](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107151518694.png)
+![image-20210107151518694](https://raw.githubusercontent.com/li0228/image/master/image-20210107151518694.png)
 
 ### constant_pool[]的格式是这样的：
 
-![image-20210107152307603](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107152307603.png)
+![image-20210107152307603](https://raw.githubusercontent.com/li0228/image/master/image-20210107152307603.png)
 
 ### tag的类型
 
@@ -101,13 +101,13 @@ public class TestJvm {
 
 每种类型的项是不一样的，所有的类型的项如下：
 
-![img](https://img2018.cnblogs.com/blog/595137/201812/595137-20181219204338051-305022474.png)
+![img](https://raw.githubusercontent.com/li0228/image/master/595137-20181219204338051-305022474.png)
 
 ### 举例分析
 
 #### 常量池计数器（CONSTANT_POOL_COUNT）
 
-![image-20210107161441657](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107161441657.png)
+![image-20210107161441657](https://raw.githubusercontent.com/li0228/image/master/image-20210107161441657.png)
 
 0x0022转为二进制：34 。可以得出：一共有34个常量。
 
@@ -121,32 +121,33 @@ public class TestJvm {
 
     转为十进制等于**10**，查tag表可知类型为：CONSTANT_Methodref（类方法符号引用）
 
-    ![image-20210107163152147](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107163152147.png)
+    ![image-20210107163152147](https://raw.githubusercontent.com/li0228/image/master/image-20210107163152147.png)
 
   - **info**
 
     tag为10的常量结构如图：
 
-    ![image-20210107163706466](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107163706466.png)
+    ![image-20210107163706466](https://raw.githubusercontent.com/li0228/image/master/image-20210107163706466.png)
 
     第二项：指向声明方法的描述符的索引值（类名），第三项：指向名称及类型描述符的索引值（方法名）
 
     接下来拿出后面四个字节
 
-    ![image-20210107164357764](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107164357764.png)
+    ![image-20210107164357764](https://raw.githubusercontent.com/li0228/image/master/image-20210107164357764.png)
 
     转成十进制，分别是6和20。
 
     通过javap命令看一下class文件信息，将这两者组合起来就是：`java/lang/Object.<init>:V`，即 Object 的 init 初始化方法。
 
-    ![image-20210107164750857](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107164750857.png)
+    ![image-20210107164750857](https://raw.githubusercontent.com/li0228/image/master/image-20210107164750857.png)
 
     接下来就是剩下的33个常量了
 
 - 第二个常量
 
-  ![image-20210107175939424](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107175939424.png)
+  ![image-20210107175939424](https://raw.githubusercontent.com/li0228/image/master/image-20210107175939424.png)
 
   - tag值为9
 
-  ![image-20210107175920706](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210107175920706.png)
+  ![image-20210107175920706](https://raw.githubusercontent.com/li0228/image/master/image-20210107175920706.png)
+
