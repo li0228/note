@@ -111,7 +111,7 @@ public class TestJvm {
 
 0x0022转为二进制：34 。可以得出：一共有34个常量。
 
-#### 常量池（CONSTANT_POOL[])
+#### 常量池（CONSTANT_POOL)
 
 接下来就是每一项每一项来对比了。
 
