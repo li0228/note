@@ -117,37 +117,103 @@ public class TestJvm {
 
 - 第一个常量
 
-  - **tag:0a** 
+  **tag:0a** 
 
-    转为十进制等于**10**，查tag表可知类型为：CONSTANT_Methodref（类方法符号引用）
+  转为十进制等于**10**，查tag表可知类型为：CONSTANT_Methodref（类方法符号引用）
 
-    ![image-20210107163152147](https://raw.githubusercontent.com/li0228/image/master/image-20210107163152147.png)
+  ![image-20210107163152147](https://raw.githubusercontent.com/li0228/image/master/image-20210107163152147.png)**info**
 
-  - **info**
+  tag为10的常量结构如图：
 
-    tag为10的常量结构如图：
+  ![image-20210107163706466](https://raw.githubusercontent.com/li0228/image/master/image-20210107163706466.png)
 
-    ![image-20210107163706466](https://raw.githubusercontent.com/li0228/image/master/image-20210107163706466.png)
+  第二项：指向声明方法的描述符的索引值（类名），第三项：指向名称及类型描述符的索引值（方法名）
 
-    第二项：指向声明方法的描述符的索引值（类名），第三项：指向名称及类型描述符的索引值（方法名）
+  接下来拿出后面四个字节
 
-    接下来拿出后面四个字节
+  ![image-20210107164357764](https://raw.githubusercontent.com/li0228/image/master/image-20210107164357764.png)
 
-    ![image-20210107164357764](https://raw.githubusercontent.com/li0228/image/master/image-20210107164357764.png)
+  转成十进制，分别是6和20。
 
-    转成十进制，分别是6和20。
+  通过javap命令看一下class文件信息，将这两者组合起来就是：`java/lang/Object.<init>:V`，即 Object 的 init 初始化方法。
 
-    通过javap命令看一下class文件信息，将这两者组合起来就是：`java/lang/Object.<init>:V`，即 Object 的 init 初始化方法。
+  ![image-20210107164750857](https://raw.githubusercontent.com/li0228/image/master/image-20210107164750857.png)
 
-    ![image-20210107164750857](https://raw.githubusercontent.com/li0228/image/master/image-20210107164750857.png)
+  接下来就是剩下的33个常量了
 
-    接下来就是剩下的33个常量了
-
-- 第二个常量
+- **第二个常量**
 
   ![image-20210107175939424](https://raw.githubusercontent.com/li0228/image/master/image-20210107175939424.png)
 
-  - tag值为9
+  **tag:09**
+
+  对照表格可知知道该常量为字段的符号引用**
+
+  **info **
+
+  查表格可知该结构如下：
 
   ![image-20210107175920706](https://raw.githubusercontent.com/li0228/image/master/image-20210107175920706.png)
 
+  拿出后面的四个字节：00 15 和 00 16，转成十进制：21和22
+
+  // TODO 这里贴个图
+
+  21指向28 对应：class：System
+
+  22指向29和30 对应：out 和L:java/io/printstream
+
+- **第三个常量**
+
+  **tag:08**
+
+  字面量索引
+
+  **info**
+
+  拿出后面两个字节：00 17 ；转成十进制：23
+
+  23：对应是是utf8类型。值为“hello world”
+
+- **第四个常量**
+
+  **tag:0a -> 10**
+
+  方法索引
+
+  **info**
+
+  拿出后面的四个字节 0018和0019，转成十进制：24和25
+
+  24：指向31。对应：java/io/printStram
+
+  25：指向32和33。对应println和V（java/lang/String）
+
+  说明这是一个方法。println(String)
+
+- **第五个常量****
+
+  **tag:07**
+
+  全限定名常量索引
+
+  **info**
+
+  拿出后面两个字节：001a -> 26
+
+  26：com/test/TestJvm
+
+- **第六个常量**
+
+  **tag:07**
+
+  全限定名常量索引
+
+  **info**
+
+  001b -> 27 : java/lang/Object
+
+- **第七个常量**
+  数据为01  00 06  3c  69 6e 69  。它是一个字符串常量，转换之后是：<init>。
+
+  ![image-20210107175939424](https://raw.githubusercontent.com/li0228/image/master/image-20210107175939424.png)
