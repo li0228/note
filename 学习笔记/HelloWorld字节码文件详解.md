@@ -231,7 +231,7 @@ public class TestJvm {
 
 - **第十一个常量**
 
-  数据为：01 00 12 4c 6f 63 61 6c 56 61 72 69 61 62 6c 65 54 61 62 6c 65。字符串常量，转换之后：
+  数据为：01 00 12 4c 6f 63 61 6c 56 61 72 69 61 62 6c 65 54 61 62 6c 65。字符串常量，转换之后：LocalVariableTable
 
 - **第十二个常量**
 
@@ -516,6 +516,8 @@ attribute_info 属性表的表结构如下。
 
 ![fdafsdfsdafefe](https://raw.githubusercontent.com/li0228/image/master/fdafsdfsdafefe.png)
 
+**第一个属性：**
+
 前面两字节表示属性名称索引：00 0a->10。查阅可知：LineNumberTable
 
 结构为：
@@ -535,3 +537,17 @@ attribute_info 属性表的表结构如下。
 stsrt_Pc: 00 00 代表字节码行号
 
 line_number：00 07；代表源代码行号
+
+**第二个属性：**
+
+用表格来比较直观一点，分析的话跟上面一个属性一样。
+
+| 属性                 | 值          | 含义                           |
+| -------------------- | ----------- | ------------------------------ |
+| attribute_name_index | 00 0b -> 11 | 查常量池表：LocalVariableTable |
+|                      |             |                                |
+|                      |             |                                |
+
+LocalVariableTable格式：
+
+![image-20210113160147291](https://raw.githubusercontent.com/li0228/image/master/image-20210113160147291.png)
