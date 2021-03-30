@@ -7,9 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
-        <module name="nettydemo" />
-        <module name="webSocketDemo" />
-        <module name="clientdemo" />
         <module name="shiroDemo" />
       </profile>
     </annotationProcessing>
@@ -18,6 +15,7 @@
       <module name="demo" target="1.8" />
       <module name="nettydemo" target="1.8" />
       <module name="shiroDemo" target="1.8" />
+      <module name="threadPooldem" target="1.8" />
       <module name="webSocketDemo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -26,6 +24,7 @@
       <module name="clientdemo" options="-parameters" />
       <module name="nettydemo" options="-parameters" />
       <module name="shiroDemo" options="-parameters" />
+      <module name="threadPooldem" options="-parameters" />
       <module name="webSocketDemo" options="-parameters" />
     </option>
   </component>
