@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/demo.iml" filepath="$PROJECT_DIR$/shiroDemo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" filepath="$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvmDemo/jvmDemo.iml" filepath="$PROJECT_DIR$/jvmDemo/jvmDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/referencedemo/referencedemo.iml" filepath="$PROJECT_DIR$/referencedemo/referencedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/shiroDemo.iml" filepath="$PROJECT_DIR$/shiroDemo/shiroDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/theadpooldemo/theadpooldemo.iml" filepath="$PROJECT_DIR$/theadpooldemo/theadpooldemo.iml" />
     </modules>
