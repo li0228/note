@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/aopdemo/aopdemo.iml" filepath="$PROJECT_DIR$/aopdemo/aopdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloneabledemo/cloneabledemo.iml" filepath="$PROJECT_DIR$/cloneabledemo/cloneabledemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/demo.iml" filepath="$PROJECT_DIR$/shiroDemo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hellospringdemo/hellospringdemo.iml" filepath="$PROJECT_DIR$/hellospringdemo/hellospringdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" filepath="$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvmDemo/jvmDemo.iml" filepath="$PROJECT_DIR$/jvmDemo/jvmDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/referencedemo/referencedemo.iml" filepath="$PROJECT_DIR$/referencedemo/referencedemo.iml" />

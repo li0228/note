@@ -9,6 +9,7 @@
         <module name="springdemo" />
         <module name="aopdemo" />
         <module name="demo" />
+        <module name="hellospringdemo" />
         <module name="shiroDemo" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="aopdemo" target="8" />
       <module name="clientdemo" target="1.8" />
       <module name="demo" target="1.8" />
+      <module name="hellospringdemo" target="1.5" />
       <module name="nettydemo" target="1.8" />
       <module name="shiroDemo" target="1.8" />
       <module name="springdemo" target="8" />
