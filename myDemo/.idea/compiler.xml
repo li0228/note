@@ -9,7 +9,6 @@
         <module name="springdemo" />
         <module name="aopdemo" />
         <module name="demo" />
-        <module name="hellospringdemo" />
         <module name="shiroDemo" />
       </profile>
     </annotationProcessing>
