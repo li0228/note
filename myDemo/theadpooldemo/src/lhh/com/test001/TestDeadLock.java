@@ -25,6 +25,7 @@ class MyThread implements Runnable{
 			synchronized (lockB){
 				System.out.println(Thread.currentThread().getName()+"持有"+lockB);
 			}
+
 		}
 	}
 }

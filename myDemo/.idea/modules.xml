@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/aopdemo/aopdemo.iml" filepath="$PROJECT_DIR$/aopdemo/aopdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloneabledemo/cloneabledemo.iml" filepath="$PROJECT_DIR$/cloneabledemo/cloneabledemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/demo.iml" filepath="$PROJECT_DIR$/shiroDemo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" filepath="$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvmDemo/jvmDemo.iml" filepath="$PROJECT_DIR$/jvmDemo/jvmDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/referencedemo/referencedemo.iml" filepath="$PROJECT_DIR$/referencedemo/referencedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/shiroDemo.iml" filepath="$PROJECT_DIR$/shiroDemo/shiroDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springdemo/springdemo.iml" filepath="$PROJECT_DIR$/springdemo/springdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/theadpooldemo/theadpooldemo.iml" filepath="$PROJECT_DIR$/theadpooldemo/theadpooldemo.iml" />
     </modules>
   </component>

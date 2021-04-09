@@ -6,15 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springdemo" />
+        <module name="aopdemo" />
         <module name="demo" />
         <module name="shiroDemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="aopdemo" target="8" />
       <module name="clientdemo" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="nettydemo" target="1.8" />
       <module name="shiroDemo" target="1.8" />
+      <module name="springdemo" target="8" />
       <module name="threadPooldem" target="1.8" />
       <module name="webSocketDemo" target="1.8" />
     </bytecodeTargetLevel>

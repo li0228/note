@@ -4,6 +4,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/shiroDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/aopdemo/pom.xml" />
       </list>
     </option>
   </component>
