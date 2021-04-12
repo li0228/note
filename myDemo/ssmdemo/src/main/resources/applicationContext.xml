@@ -9,8 +9,8 @@
     </context:component-scan>
 
     <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
-        <property name="password" value="root"/>
-        <property name="user" value="123456"/>
+        <property name="password" value="123456"/>
+        <property name="user" value="root"/>
         <!-- #改成自己的并补充完整  mysql8略有不同-->
         <property name="jdbcUrl" value="jdbc:mysql://192.168.16.2:10000/lihonghao"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>

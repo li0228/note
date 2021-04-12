@@ -1,10 +1,13 @@
 package com.lhh.pojo;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author lihonghao
  * @date 2021/4/12 19:34
  *
  */
+@Component
 public class User {
 	private int id;
 	private String name;
@@ -41,5 +44,10 @@ public class User {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + '}';
 	}
 }
