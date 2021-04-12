@@ -25,3 +25,6 @@
   ```java
   firewall-cmd --reload
   ```
+
+二、fastDFS命令
+
