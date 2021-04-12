@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--别名-->
+    <typeAliases>
+        <package name="com.lhh.pojo"/>
+    </typeAliases>
+    <!-- 映射文件路径 -->
+    <mappers>
+        <!--如果设置包名的话就是整个包的文件-->
+        <mapper resource="com.lhh.dao"/>
+    </mappers>
+</configuration>
