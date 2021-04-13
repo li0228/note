@@ -9,9 +9,9 @@
         <option value="$PROJECT_DIR$/shiroDemo/pom.xml" />
         <option value="$PROJECT_DIR$/springdemo/pom.xml" />
         <option value="$PROJECT_DIR$/aopdemo/pom.xml" />
-        <option value="$PROJECT_DIR$/mybaitsdemo/pom.xml" />
         <option value="$PROJECT_DIR$/ssmdemo/pom.xml" />
         <option value="$PROJECT_DIR$/jdbcdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
       </list>
     </option>
   </component>

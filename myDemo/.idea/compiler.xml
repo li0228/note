@@ -9,17 +9,18 @@
         <module name="springdemo" />
         <module name="jdbcdemo" />
         <module name="ssmdemo" />
+        <module name="mybatis-demo" />
         <module name="aopdemo" />
         <module name="demo" />
         <module name="shiroDemo" />
-        <module name="mybaitsdemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aopdemo" target="8" />
       <module name="demo" target="1.8" />
-      <module name="jdbcdemo" target="8" />
+      <module name="jdbcdemo" target="11" />
       <module name="mybaitsdemo" target="1.7" />
+      <module name="mybatis-demo" target="8" />
       <module name="shiroDemo" target="1.8" />
       <module name="springdemo" target="8" />
       <module name="ssmdemo" target="1.7" />
