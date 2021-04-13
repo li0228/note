@@ -11,10 +11,11 @@
         <option value="$PROJECT_DIR$/aopdemo/pom.xml" />
         <option value="$PROJECT_DIR$/mybaitsdemo/pom.xml" />
         <option value="$PROJECT_DIR$/ssmdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/jdbcdemo/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
