@@ -23,7 +23,7 @@ public class myTest {
 
 		// 获取sqlsession对象
 		SqlSession sqlSession = factory.openSession();
-		String sqlId = "com.lhh.dao"+"."+"getUsers";
+		String sqlId = "com.lhh.dao.UserDao"+"."+"getUsers";
 		List<User> userList = sqlSession.selectList(sqlId);
 		for (User user : userList) {
 			System.out.println(user.getName());

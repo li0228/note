@@ -3,12 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="./jdbc.properties"></properties>
     <!--可以配置多个数据源，通过default属性设置哪个生效-->
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="jdbc:mysql://192.168.16.2:10000/lihonghao"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>

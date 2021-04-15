@@ -12,6 +12,7 @@
         <module name="mybatis-demo" />
         <module name="aopdemo" />
         <module name="demo" />
+        <module name="spring-mybatis" />
         <module name="shiroDemo" />
       </profile>
     </annotationProcessing>
@@ -22,6 +23,7 @@
       <module name="mybaitsdemo" target="1.7" />
       <module name="mybatis-demo" target="8" />
       <module name="shiroDemo" target="1.8" />
+      <module name="spring-mybatis" target="1.8" />
       <module name="springdemo" target="8" />
       <module name="ssmdemo" target="1.7" />
     </bytecodeTargetLevel>
