@@ -28,7 +28,10 @@
       <module name="springbootdemo" target="1.8" />
       <module name="springdemo" target="8" />
       <module name="srpingmvcdemo" target="1.7" />
-      <module name="ssmdemo" target="1.7" />
+      <module name="ssm" target="8" />
+      <module name="ssmdemo" target="1.5" />
+      <module name="ssmTest" target="8" />
+      <module name="ssmtest" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

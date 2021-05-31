@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GrepConsole">
+    <option name="pinnedGrepConsolesState">
+      <PinnedGrepConsolesState>
+        <option name="map">
+          <map>
+            <entry>
+              <key>
+                <RunConfigurationRef>
+                  <option name="icon" value="tomcat.svg')" />
+                  <option name="name" value="Tomcat 8.0.50" />
+                </RunConfigurationRef>
+              </key>
+              <value>
+                <Pins>
+                  <option name="pins">
+                    <list>
+                      <Pin>
+                        <option name="consoleUUID" value="f19ed3ea-c628-41ce-9c28-9fd0fcb59040" />
+                        <option name="contentType" value="C:\Users\Administrator\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\de945de6-6c96-4ded-943d-1e89ebfd2d82\logs\localhost.2021-05-24.log" />
+                        <option name="grepModel">
+                          <GrepModel>
+                            <option name="expression" value=" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl'" />
+                            <option name="unlessExpression" value="" />
+                          </GrepModel>
+                        </option>
+                      </Pin>
+                    </list>
+                  </option>
+                </Pins>
+              </value>
+            </entry>
+          </map>
+        </option>
+      </PinnedGrepConsolesState>
+    </option>
+  </component>
+</project>

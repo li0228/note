@@ -1,0 +1,45 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ssmdemo:war exploded">
+    <output-path>$PROJECT_DIR$/ssmdemo/target/ssmdemo-1.0.0</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>ssmdemo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ssmdemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.12" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.6" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.12" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.0" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.5" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.7" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.17.RELEASE" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ssmdemo/target/ssmdemo-1.0.0/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ssmdemo/web/Web" />
+    </root>
+  </artifact>
+</component>

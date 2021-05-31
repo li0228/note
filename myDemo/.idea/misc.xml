@@ -10,12 +10,13 @@
         <option value="$PROJECT_DIR$/shiroDemo/pom.xml" />
         <option value="$PROJECT_DIR$/springdemo/pom.xml" />
         <option value="$PROJECT_DIR$/aopdemo/pom.xml" />
-        <option value="$PROJECT_DIR$/ssmdemo/pom.xml" />
         <option value="$PROJECT_DIR$/jdbcdemo/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/srpingmvcdemo/pom.xml" />
         <option value="$PROJECT_DIR$/springbootdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/ssmtest/pom.xml" />
+        <option value="$PROJECT_DIR$/ssmdemo/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-    <!--不去扫描controller包-->
-    <context:component-scan base-package="com.lhh">
+
+    <!--注解驱动-->
+    <context:component-scan base-package="com.lhh.ssmdemo">
+        <!--controller不扫描-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
-        <property name="password" value="123456"/>
-        <property name="user" value="root"/>
-        <!-- #改成自己的并补充完整  mysql8略有不同-->
-        <property name="jdbcUrl" value="jdbc:mysql://192.168.16.2:10000/lihonghao"/>
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+    <!--读取配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--获取连接池对象，交给spring管理-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!-- 连接数据库的驱动，连接字符串，用户名和登录密码-->
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!--获取sqlSessionFactory对象，交给spring管理-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:com/lhh/ssmdemo/dao/mappings/*.xml"></property>
     </bean>
-
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lhh.dao"/>
+    <!-- 3) 获取 SqlSession 对象，并交由 spring 管理  用SqlSessionTemplate得到的SqlSession可以不用我们自己操心事务的管理，以及关闭操作-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <!-- 给 SqlSessionTemplate 的构造函数赋值-->
+        <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
-
 </beans>
