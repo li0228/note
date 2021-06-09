@@ -72,10 +72,9 @@
 // 打印默认的参数
 
 
-
+-XX:NewRatio
+// 指定新生代内存比例
 ```
-
-
 
 ## 2、jvm调优思路
 
@@ -197,12 +196,107 @@
 
 #### jstat
 
+查看jvm的统计信息（类加载，内存，垃圾收集）
 
+```
+// 类加载相关
+jstat -class pid
+
+// 垃圾回收相关
+jstat -gc pid 1000 10
+jstat -gcutil pid 1000 10
+```
 
 #### jinfo
 
+实时查看和修改jvm配置的参数
+
+```
+jinfo -flags pid 
+// 查看曾经赋值过的所有参数
+jinfo -flag 具体参数 pid
+// 查看具体参数的值
+
+如果参数被标记为manageable的可以被实时修改
+java -XX:PrintFlagsFinal -version |grep manageable
+// 可以查看被标记为manageable的参数
+
+jinfo -flag +PrintGCDetails 6006
+// 修改参数
+
+// 扩展
+java -XX:+PrintFlagsInitial pid // 查看所有JVM参数启动的初始值
+java -XX:+PrintFlagsFinal pid // 查看所有的JVM参数的最终值
+java -XX:+PrintCommandLineFlags pid // 查看已经被用户或者jvm设置过的详细的参数
+```
+
 #### jmap
+
+导出内存映像文件&内存使用情况
+
+```
+jmap -dump:format=b,file=dump.hprof pid
+// 生成堆转储快照，可以使用参数配置出现OOM时自动导出dump文件
+jmap -heap pid 
+// 查看内存使用情况
+jmap -histo pid 
+// 查看对中对象的统计信息，包括类，实例数量和合计容量
+```
 
 #### jhat
 
+查看堆转储快照文件的（一般不用这个，用visualvm或者jprofiler）
+
 #### jstack
+
+生成线程快照的作用：**可用于定位线程出现长时间停顿的原因**，如线程死锁、死循环、请求外部资源导致的长时间等待等问题。
+
+重点关注：
+
+- **死锁**
+- **等待资源**
+
+- **等待获取监视器**
+- **阻塞**
+- 执行中
+- 暂停
+- 对象等待中
+- 停止
+
+```
+jstack pid
+```
+
+#### jcmd
+
+缝合怪，不学
+
+#### jstatd
+
+远程监控（了解）
+
+### （六）JVM监控及诊断工具-GUI篇
+
+#### jconsole
+
+#### visual VM
+
+装上visualGC
+
+这个比较重要。必会
+
+#### jProfiler
+
+#### Arthas
+
+### （七）内存泄漏的八种情况
+
+1. 静态集合类
+2. 单例模式
+3. 内部类持有外部类
+4. 各种连接，如数据库连接、网络连接和IO连接
+5. 变量不合理的作用域
+6. 改变哈希值
+7. 缓存泄漏
+8. 监听器和回调
+
