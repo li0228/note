@@ -67,6 +67,13 @@
 
 -XX:+HeapDumpOnOutOfMemoryError	
 // 让jvm溢出时dump出内存快照，以便分析使用（生产环境必配）
+-XX:HeapDumpPath=/xx/xx/xx.hprof
+// 生成dump文件的路径，一般和上面的一起配
+
+-XX:+PrintFlggsFinal
+// 输出所有参数的名称和默认值
+-XX:+PrintFlagsInitial
+// 输出初始值
 
 -XX:+PrintCommandLineFlags -version
 // 打印默认的参数
@@ -194,6 +201,13 @@
 
 查看正在运行的java进程
 
+```
+jps
+jps -v
+jps -l
+jps -m
+```
+
 #### jstat
 
 查看jvm的统计信息（类加载，内存，垃圾收集）
@@ -204,7 +218,8 @@ jstat -class pid
 
 // 垃圾回收相关
 jstat -gc pid 1000 10
-jstat -gcutil pid 1000 10
+jstat -gcutil pid 1000 10（这个用得多）
+加一个 -t 可以打印出时间
 ```
 
 #### jinfo
@@ -221,6 +236,7 @@ jinfo -flag 具体参数 pid
 java -XX:PrintFlagsFinal -version |grep manageable
 // 可以查看被标记为manageable的参数
 
+例子：
 jinfo -flag +PrintGCDetails 6006
 // 修改参数
 
@@ -299,4 +315,91 @@ jstack pid
 6. 改变哈希值
 7. 缓存泄漏
 8. 监听器和回调
+
+### （八）JVM运行时参数
+
+#### Jvm参数选项类型
+
+- 标准参数
+- -X参数
+- -XX参数
+
+#### 添加JVM参数选项
+
+。。。
+
+#### 常用的JVM参数选项
+
+**打印设置的XX选项及值**
+
+```
+-XX:+PrintCommandLineFlags 打印手动设置或者jvm设置的XX选项
+-XX:+PrintFlagsInitial 打印初始的默认值
+-XX:+PrintFlagsFinal 打印生效的参数（ 这个会打印所有，700多个）
+-XX:+PrintVMOptions打印jvm的参数
+```
+
+**堆、栈、方法区等内存大小设置(面试）**
+
+```
+栈
+-Xss128k //设置每个线程的栈大小为128k
+等价于：-XX:ThreadStackSize=128k
+(不怎么设置)
+
+堆
+-Xms4096m //等价于-XX:InitialHeapSize,设置堆的初始大小
+-Xmx4096m //等价于-XX:MaxHeapSize，设置jvm最大内存大小
+（一般上面两个设置一样）
+
+-Xmn2g //设置年轻代的大小，等价于-XX:NewSize=2g
+-XX:MaxNewSize // 年轻代最大值
+
+-XX:SurvivorRatio=8 //设置年轻代中Eden区区一个Servivor区的比值
+-XX:UseAdaptiveSizePolicy //自动选择各区大小（默认开启）
+-XX:NewRatio // 设置年轻代和老年代的比值
+
+-XX:PretenureSizeThreadshold=1024 //设置让大于此阈值的对象直接分配在老年代
+-XX:MaxTenuringThreshold=15 //年龄
+
+方法区
+老年代
+-XX:PermSize=256m
+-XX:MaxPermSize=256m
+
+元空间
+-XX:MetaspeaceSize //初始空间大小
+-XX:MaxMetaspaceSize //最大空间
+```
+
+**OutofMemory相关的值**
+
+```
+-XX:+HeapDumpOnoutOfMemoryErro //表示内存出现OOM时，把Heap转存到文件
+-XX:HeapDumpPath=<path> //文件的存储路径
+-XX:+HeapDumpBeforeFullGC //表示出现FullGc之前转储文件
+-XX:OnOutMemoryError //制定一个可行性或者脚本路径，发生OOM时执行
+```
+
+**垃圾收集器相关**
+
+```
+-XX:+UserSeiral 
+-XX:+UseParallel
+-XX:+UseConconcMarkSweep
+```
+
+**GC日志相关选项**
+
+```
+-verbose：gc
+-XX:+PrintGC
+-XX:+PrintGCDetails
+-XX:+PrintGCTimeStamps(不能单独使用)
+-XX:+PrintGCDateStamps(不能单独使用)
+```
+
+**其他**
+
+#### 通过java代码获取JVM参数
 
