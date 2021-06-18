@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd7f7218-5f4e-48c3-b599-da0b5081305c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/学习笔记/docker/各种环境搭建.md" beforeDir="false" afterPath="$PROJECT_DIR$/学习笔记/docker/各种环境搭建.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/学习笔记/mianshiti/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/学习笔记/mianshiti/jvm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/学习笔记/数据库学习/mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/学习笔记/数据库学习/mysql.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
