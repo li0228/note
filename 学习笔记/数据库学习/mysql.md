@@ -201,9 +201,8 @@
    问题：解决like’%字符串%'时索引失效的方法？？
 
    - 使用覆盖索引来解决（推荐   ）。
-   -  
 
-9. **字符串不加单引号索引失效**
+9. **字符串不加单引号索引失效（类型转换）**
 
 10. **少用or，用它来连接时会导致索引失效**
 
@@ -226,15 +225,157 @@
 
 ### 查询优化
 
-1. 永远小表驱动大表
-2. order by 关键字优化
-3. group by关键字优化
+1. **永远小表驱动大表**
+
+2. **order by 关键字优化**
+
+   - Mysql支持两种方式的排序，fileSort和index，index效率高。它指MySQL扫描索引本身完成排序。FIleSort方式效率低
+   - ORDER BY满足两种情况会使用Index排序：
+     - ORDER BY语句使用索引最左前列
+     - 使用where子句与order by子句条件列满足索引最左前列
+
+   ![image-20210622103554878](https://raw.githubusercontent.com/li0228/image/master/image-20210622103554878.png)
+
+3. **group by关键字优化**
+
+   - 跟order by 差不多
+
+   - where 高于having，能在where限定的条件不要去having限定
 
 ### 慢查询日志
 
+1. **是什么**
+
+   mysql提供的一种日志记录，如果mysql的响应时间超过设置好的long_query_time。则会被记录到慢查询日志中。默认是关闭的。
+
+2. **怎么玩**
+
+   - **说明**
+
+     **默认是没有开启的，需要手动设置，不是调优的话不建议开启，因为会影响到性能。**
+
+   - **查看如何开启及开启**
+
+     ```sql
+      **SHOW VARIABLES LIKE ‘%slow_query_log%'**
+     ```
+
+     开启和关闭
+
+     ```sql
+     set global slow_query_log=1;#一次行开启，mysql重启之后会失效
+     ```
+
+   - **开启之后什么样的sql会被记录到慢查询日志中？**
+
+     这个是由long_query_time控制，默认情况下long_query_time的值为10秒
+
+     ```sql
+     SHOW VARIABLES LIKE 'long_query_time%';
+     ```
+
+     可以使用命令修改，也可以在my.cnf参数里面修改。
+
+     **加入运行时间正好等于long_query_time，并不会被记录下来。**
+
+3. Case
+
+   1. 查看多少秒算慢
+
+      ```sql
+      SHOW VARIABLES LIKE 'long_query_time%';
+      ```
+
+   2. 设置慢的阈值时间
+
+      ```sql
+      set global long_query_time=3;
+      ```
+
+   3. 为什么设置后看不出变化
+
+      **需要重新连接**
+
+   4. 记录慢sql并后续分析
+
+   5. 查询当前系统中有多少慢查询记录
+
+      ```sql 
+      show global status like '%Slow_queries%';
+      ```
+
+4. **日志分析工具mysqldumpslow**
+
+   1. 查看mysqldumpslow的帮助信息
+   2. 工作常用参考
+
 ### 批量数据脚本
+
+往表里插入1000W条数据
+
+1. 建表
+
+   ```sql
+   #1 建表dept
+   CREATE TABLE `dept`  (
+     `id` int(10) UNSIGNED NOT NULL,
+     `deptno` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
+     `dname` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL DEFAULT '',
+     `loc` varchar(13) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL DEFAULT '',
+     PRIMARY KEY (`id`) USING BTREE
+   ) ENGINE = InnoDB CHARACTER SET = gbk COLLATE = gbk_chinese_ci ROW_FORMAT = Dynamic;
+   
+   
+   #2 建表emp
+   CREATE TABLE `emp`  (
+     `id` int(11) NOT NULL,
+     `empno` int(10) UNSIGNED ZEROFILL NOT NULL,
+     `ename` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+     `job` varchar(9) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+     `mgr` int(11) NOT NULL,
+     `hireDate` date NOT NULL,
+     `sal` double NOT NULL,
+     `comm` double NOT NULL,
+     `deptno` int(11) NOT NULL,
+     PRIMARY KEY (`id`) USING BTREE
+   ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+   ```
+
+2. **设置参数log_bin_trust_function_creators**
+
+   ```sql
+   show VARIABLES like 'log_bin_trust_function_creators';
+   ```
+
+   ```sql
+   set global log_bin_trust_function_creators = 1;
+   ```
+
+3. **创建函数，保证每条数据都不同**
+
+   - 随机产生字符串
+   - 随机产生部门编号
+
+4. **创建存储过程**
+
+   - 创建往emp表中插入数据的存储过程
+   - 创建往dept表中插入数据的存储过程  
+
+5. **调用存储过程**
+
+   - dept
+   - emp
 
 ### show Profile
 
 ### 全局查询日志
 
+## 复合索引的底层存储结构
+
+![image-20210622173629169](https://raw.githubusercontent.com/li0228/image/master/image-20210622173629169.png)
+
+**key放多个字段。**
+
+逐个字段比较
+
+所以需要符合最佳做前缀原理
