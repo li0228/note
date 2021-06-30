@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/aopdemo/aopdemo.iml" filepath="$PROJECT_DIR$/aopdemo/aopdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloneabledemo/cloneabledemo.iml" filepath="$PROJECT_DIR$/cloneabledemo/cloneabledemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/demo.iml" filepath="$PROJECT_DIR$/shiroDemo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iodemo/iodemo.iml" filepath="$PROJECT_DIR$/iodemo/iodemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" filepath="$PROJECT_DIR$/javaeeDemo/javaeeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jdbcdemo/jdbcdemo.iml" filepath="$PROJECT_DIR$/jdbcdemo/jdbcdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />
