@@ -546,7 +546,55 @@ public class ServerReadThread extends Thread {
 
 ## **java NIO深入剖析**
 
+### java NIO 基本介绍 
+
+- non-blocking IO 。1.4引入
+- 在java.nio包下
+- 三大核心：Channel，Buffer，Selector
+
+### NIO和BIO的比较
+
+- BIO以流的方式处理数据，而NOI以块的方式处理数据，**块I/O**的效率比**流I/O**高很多
+- BIO是阻塞的，NIO则是非阻塞的
+- BIO基于自己留和字符流操作，而NIO基于CHannel（通道）和Buffer（缓冲区）进行操作，数据总是从通道读取到缓冲区中，或者从缓冲区写入到通道中。Selector（选择器）用于监听多个通道的事件。（比如：连接请求，数据到达等），因此使用单个线程就可以监听多个客户端通道。
+
+| NIO                      | BIO                  |
+| ------------------------ | -------------------- |
+| 面向缓冲区（Buffer)      | 面向流（Stream)      |
+| 非阻塞（Non Blocking IO) | 阻塞IO（Blocking IO) |
+| 选择器（Selectors)       |                      |
+
+### NIO三个核心原理示意图
+
+NIO有三个核心部分：**Channel(通道)、Buffer（缓冲区）、Selector(选择器)**
+
+### NIO核心一：缓冲区（buffer）
+
+缓冲区本质是一块可以写入数据，然后可以从中读取数据的内存。这块内存被包装成NIO Buffer对象，并提供了一组方法，用来方便的访问该内存。相比较直接对数组的操作，Buffer API更加容易操作和管理。
+
+### NIO核心二：通道（channel）
+
+java NIO的痛啊动类似流，但又有些不同；既可以从通道读取数据，又可以写数据到通道。但流是单向的。通道可以非阻塞读取和写入通道。可以异步读取。
+
+### NIO核心三：选择器（selector）
+
+Selector是一个java NIO组件，可以能够检测一个或多个NIO通道，并确定哪些通道已经准备好读取或写入。这样，一个单线程可以管理多个channel，从而管理多个网络请求，提高效率。
+
+### NIO非阻塞式网络通信原理分析
+
+![image-20210630200836366](https://raw.githubusercontent.com/li0228/image/master/image-20210630200836366.png)
+
+- 每个channel都会对应一个Buffer
+- 一个线程对应一个selecter，一个Selector对应多个channel
+- 程序切换到哪个channel是由事件决定的
+- selector会根据不同的时间，在各个通道上切换
+- buffer就是一个内存快，底层是一个数组
+- 数据的读写是通过buffer完成的，BIO中要么就是输入，要么就是输出，不能双向，但是NIO的Buffer是可以读也可写
+- java NIO系统的核心在于：通道和缓冲区，通道表示打开到IO设备的连接，若需要使用NIO系统，需要获取用于连接IO设备的通道以及用于容纳数据的缓冲区，然后操作缓冲区，对数据进行书里。简而言之，channel负责传输，buffer负责存取数据
+
 ## **java AIO深入剖析**
+
+
 
 ## **总结**
 
