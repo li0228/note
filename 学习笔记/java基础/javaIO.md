@@ -572,6 +572,28 @@ NIO有三个核心部分：**Channel(通道)、Buffer（缓冲区）、Selector(
 
 缓冲区本质是一块可以写入数据，然后可以从中读取数据的内存。这块内存被包装成NIO Buffer对象，并提供了一组方法，用来方便的访问该内存。相比较直接对数组的操作，Buffer API更加容易操作和管理。
 
+#### BUffer及其子类
+
+buffer就像是一个数组，可以保存多个相同类型的数据。根据数据类型不同，有以下几种
+
+- ByteBuffer
+- CharBuffer
+- ShortBuffer
+- intBuffer
+- LongBuffer
+- FloatBuffer
+- DoubleBuffer
+
+#### 缓冲区的基本属性
+
+Buffer中的重要概念
+
+- 容量（capacity)
+- 限制（limit)
+- 位置（position)
+- 标记（mark)和充值（reset)
+- 图示：
+
 ### NIO核心二：通道（channel）
 
 java NIO的痛啊动类似流，但又有些不同；既可以从通道读取数据，又可以写数据到通道。但流是单向的。通道可以非阻塞读取和写入通道。可以异步读取。
