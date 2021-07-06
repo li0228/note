@@ -586,23 +586,71 @@ buffer就像是一个数组，可以保存多个相同类型的数据。根据�
 
 #### 缓冲区的基本属性
 
-Buffer中的重要概念
+**Buffer中的重要概念**
 
 - 容量（capacity)
 - 限制（limit)
 - 位置（position)
-- 标记（mark)和充值（reset)
-- 图示：
+- 标记（mark)和重置（reset)
+
+**使用Buffer读写数据一般遵循四个步骤：**
+
+1. **写入数据到Buffer**
+2. **调用flip（），转换为读数据**
+3. **从buffer中读取数据**
+4. **调用clear()或者campact()方法清除缓冲区**
 
 ### NIO核心二：通道（channel）
 
-java NIO的痛啊动类似流，但又有些不同；既可以从通道读取数据，又可以写数据到通道。但流是单向的。通道可以非阻塞读取和写入通道。可以异步读取。
+java NIO的通道类似流，但又有些不同；既可以从通道读取数据，又可以写数据到通道。但流是单向的。通道可以非阻塞读取和写入通道。可以异步读取 。
+
+Channel在NIO中是一个接口
+
+```java
+public interface Channel exends Closeable{}
+```
+
+#### 常见的Channel实现类 
+
+- FileChannel:用于读取、写入、映射和操作文件的通道
+- DatagramChannel:通过UDP读写网络中的通道
+- socketChannel:通过TCP读写网络中的通道
+- ServerSocketChannel：可以监听新进来的TCP连接，对每一个新进来的链接都会创建一个SocketChannel。
+
+
 
 ### NIO核心三：选择器（selector）
 
 Selector是一个java NIO组件，可以能够检测一个或多个NIO通道，并确定哪些通道已经准备好读取或写入。这样，一个单线程可以管理多个channel，从而管理多个网络请求，提高效率。
 
+#### 选择器（Selector)的应用
+
+创建选择器：通过调用Select.open()方法创建一个selector
+
+```java
+Selector selector = Selector.open();
+```
+
+向选择器注册通道：SelectableChannel.register(Selector sel,int ops)
+
+```java
+//1. 获取通道
+ServerSocketChannel = ssChannel = ServerSocketChannel.open();
+//2. 切换到非阻塞模式
+ssChannel.configureBlocking(false);
+//3. 获取绑定
+ssChannel.bind(new InetSocketAddress(9999));
+//4. 获取选择器
+Selector selector = Selector.open();
+//5. 减通道注册到选择器上，并且制定“监听接收事件”
+ssChannel.register(selector,SelectionKey.OP_ACCEPT);
+```
+
 ### NIO非阻塞式网络通信原理分析
+
+#### Selector示意图和特点说明
+
+Selector可以实现：一个I/O线程可以并发处理N个客户端连接和读写操作，这从根本上解决了传统同步阻塞I/O一连接一线程模型，架构的性能、弹性伸缩能力和可靠性得到了极大的提升
 
 ![image-20210630200836366](https://raw.githubusercontent.com/li0228/image/master/image-20210630200836366.png)
 
@@ -614,9 +662,91 @@ Selector是一个java NIO组件，可以能够检测一个或多个NIO通道，�
 - 数据的读写是通过buffer完成的，BIO中要么就是输入，要么就是输出，不能双向，但是NIO的Buffer是可以读也可写
 - java NIO系统的核心在于：通道和缓冲区，通道表示打开到IO设备的连接，若需要使用NIO系统，需要获取用于连接IO设备的通道以及用于容纳数据的缓冲区，然后操作缓冲区，对数据进行书里。简而言之，channel负责传输，buffer负责存取数据
 
-## **java AIO深入剖析**
+#### NIO非阻塞式网络通信入门案例
+
+需求：服务端接收客户端连接请求，并接收多个客户端发送过来的事件
+
+**代码案例**
+
+**服务端**
+
+```java
+/**
+ * 目标：NIO非阻塞通信下的入门案例
+ * @author lihonghao
+ * @date 2021/7/5 10:26
+ */
+public class Server {
+	public static void main(String[] args) throws IOException {
+		// 获取通道
+		ServerSocketChannel socketChannel = ServerSocketChannel.open();
+		// 配置成非阻塞模式
+		socketChannel.configureBlocking(false);
+		// 监听端口
+		socketChannel.bind(new InetSocketAddress(9999));
+		// 获取选择器
+		Selector selector = Selector.open();
+		socketChannel.register(selector, SelectionKey.OP_ACCEPT );
+
+		while(selector.select() > 0){
+			// 1.获取选择器中的所有注册的通道中已经就绪的事件
+			Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+			// 开始遍历准备好的事件
+			while(iterator.hasNext()){
+				SelectionKey sk = iterator.next();
+				// 判断事件的类型
+				if(sk.isAcceptable()){
+					SocketChannel accept = socketChannel.accept();
+					accept.configureBlocking(false);
+					// 将本客户端事件注册到选择
+					accept.register(selector,SelectionKey.OP_READ);
+				}else if(sk.isReadable()){
+					// 获取读就绪事件
+					SocketChannel socketChannel1 = (SocketChannel) sk.channel();
+					// 读取数据
+					ByteBuffer byf = ByteBuffer.allocate(2014);
+					int len = 0;
+					while ((len = socketChannel1.read(byf))>0){
+						byf.flip();
+						System.out.println(new String(byf.array(),0,len));
+						byf.clear();
+					}
+				}
+				iterator.remove();
+			}
+		}
+	}
 
 
+}
 
-## **总结**
+```
 
+**客户端**
+
+```java
+
+/**
+ * @author lihonghao
+ * @date 2021/7/5 11:22
+ */
+public class Client {
+	public static void main(String[] args) throws IOException {
+		SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1",9999));
+		socketChannel.configureBlocking(false);
+
+		 ByteBuffer buffer = ByteBuffer.allocate(1204);
+		 Scanner scanner = new Scanner(System.in);
+
+		 while(true){
+			 System.out.print("请说：");
+			 String msg = scanner.nextLine();
+			 buffer.put(("嘻嘻："+msg).getBytes());
+			 buffer.flip();
+			 socketChannel.write(buffer);
+			 buffer.clear();
+		 }
+	}
+}
+
+```
