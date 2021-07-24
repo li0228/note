@@ -11,7 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/referencedemo/referencedemo.iml" filepath="$PROJECT_DIR$/referencedemo/referencedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiroDemo/shiroDemo.iml" filepath="$PROJECT_DIR$/shiroDemo/shiroDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" filepath="$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootdemo/springbootdemo.iml" filepath="$PROJECT_DIR$/springbootdemo/springbootdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springdemo/springdemo.iml" filepath="$PROJECT_DIR$/springdemo/springdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/srpingmvcdemo/srpingmvcdemo.iml" filepath="$PROJECT_DIR$/srpingmvcdemo/srpingmvcdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ssmdemo/ssmdemo.iml" filepath="$PROJECT_DIR$/ssmdemo/ssmdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/theadpooldemo/theadpooldemo.iml" filepath="$PROJECT_DIR$/theadpooldemo/theadpooldemo.iml" />
     </modules>

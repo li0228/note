@@ -7,7 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springdemo" />
+        <module name="springbootdemo" />
         <module name="jdbcdemo" />
+        <module name="srpingmvcdemo" />
         <module name="ssmdemo" />
         <module name="mybatis-demo" />
         <module name="aopdemo" />
@@ -20,17 +22,19 @@
       <module name="aopdemo" target="8" />
       <module name="demo" target="1.8" />
       <module name="jdbcdemo" target="11" />
-      <module name="mybaitsdemo" target="1.7" />
       <module name="mybatis-demo" target="8" />
       <module name="shiroDemo" target="1.8" />
       <module name="spring-mybatis" target="1.8" />
+      <module name="springbootdemo" target="1.8" />
       <module name="springdemo" target="8" />
+      <module name="srpingmvcdemo" target="1.7" />
       <module name="ssmdemo" target="1.7" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="shiroDemo" options="-parameters" />
+      <module name="springbootdemo" options="-parameters" />
     </option>
   </component>
 </project>

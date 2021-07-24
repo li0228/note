@@ -9,4 +9,8 @@
         <package name="com.lhh.pojo"/>
     </typeAliases>
 
+    <mappers>
+
+    </mappers>
+
 </configuration>

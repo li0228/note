@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/srpingmvcdemo" />
     <file type="web" url="file://$PROJECT_DIR$/ssmdemo" />
   </component>
   <component name="MavenProjectsManager">
@@ -13,6 +14,8 @@
         <option value="$PROJECT_DIR$/jdbcdemo/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/srpingmvcdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootdemo/pom.xml" />
       </list>
     </option>
   </component>
